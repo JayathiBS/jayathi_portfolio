@@ -1,39 +1,25 @@
-// src/components/Header.jsx
+import React from 'react';
 
 const Header = () => {
-  const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
   return (
-    <header className="flex justify-between items-center py-6 relative z-10">
-      <div className="text-2xl font-bold tracking-widest cursor-pointer flex items-center gap-3">
-        <div className="w-10 h-10 rounded-md accent-bg flex items-center justify-center text-sm font-extrabold">JJ</div>
-        <div>
-          <div className="leading-tight">Jayathi <span className="text-muted block text-sm">Frontend & UI/UX</span></div>
+    <header className="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-lg">
+      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors">
+          Jayathi Jayoda
         </div>
-      </div>
-
-      <nav className="hidden md:flex space-x-8 items-center">
-        {navLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            className="text-muted hover:accent transition duration-300 font-medium"
-          >
-            {link.name}
-          </a>
-        ))}
+        <div className="hidden md:flex space-x-6">
+          {['About', 'Skills', 'Education', 'Projects', 'Contact'].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="text-gray-300 hover:text-blue-400 transition-colors relative group"
+            >
+              {item}
+              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+            </a>
+          ))}
+        </div>
       </nav>
-
-      <a
-        href="#contact"
-        className="btn-primary"
-      >
-        Hire Me
-      </a>
     </header>
   );
 };
