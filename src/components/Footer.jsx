@@ -2,14 +2,24 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 border-t border-gray-700 mt-12">
-      <div className="container mx-auto px-4 py-6 text-center text-gray-500">
-        <p>
-          © {new Date().getFullYear()} Jayathi Jayoda. All rights reserved.
-        </p>
-        <p className="text-sm mt-2">
-          Developed with React and Tailwind CSS for a modern, dynamic portfolio.
-        </p>
+    <footer>
+      <div className="wrap footer-grid">
+        <div>
+          <div className="brand" style={{ marginBottom: '8px' }}>
+            <div className="logo">JJ</div>
+            <div>
+              <div style={{ fontWeight: '800' }}>Jayathi Jayoda</div>
+              <div style={{ color: 'var(--muted)' }}>Computer Science & Technology Undergraduate</div>
+            </div>
+          </div>
+          <div>© {new Date().getFullYear()} Jayathi Baddewatta. All rights reserved.</div>
+        </div>
+        <div>
+          <div><strong>Contact</strong></div>
+          <div><a className="link" href="mailto:jayathibaddewatta@gmail.com">jayathibaddewatta@gmail.com</a></div>
+          <div><a className="link" href="tel:+94703998213">+94 70 399 8213</a></div>
+          <div>Keenaduwa, Ahangama, Sri Lanka</div>
+        </div>
       </div>
     </footer>
   );

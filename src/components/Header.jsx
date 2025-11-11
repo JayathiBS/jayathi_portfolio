@@ -1,25 +1,49 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({ theme, onThemeToggle, motionEnabled, onMotionToggle }) => {
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const target = document.getElementById(targetId);
+    if (target) {
+      const header = document.querySelector('header.nav');
+      const offset = header ? header.getBoundingClientRect().height : 64;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - (offset + 8);
+      window.scrollTo({ top, behavior: motionEnabled ? 'smooth' : 'auto' });
+    }
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm shadow-lg">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors">
-          Jayathi Jayoda
+    <header className="nav">
+      <div className="wrap">
+        <div className="nav-row">
+          <div className="brand">
+            <div className="logo">JJ</div>
+            <div>
+              <div style={{ fontSize: '15px', opacity: '.9' }}>Jayathi Jayoda</div>
+              <div style={{ fontSize: '12px', color: 'var(--muted)' }}>Computer Science & Tech Undergraduate</div>
+            </div>
+          </div>
+          <nav aria-label="Primary">
+            <ul>
+              {['about', 'skills', 'projects', 'uiux', 'education', 'certificates', 'activities', 'references', 'contact'].map((item) => (
+                <li key={item}>
+                  <a href={`#${item}`} onClick={(e) => handleSmoothScroll(e, item)}>
+                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="actions">
+            <button className="btn ghost" onClick={onThemeToggle} aria-label="Toggle green/blue theme">
+              Theme: {theme === 'green' ? 'Green' : 'Blue'}
+            </button>
+            <button className="btn ghost" onClick={onMotionToggle} aria-label="Toggle animations">
+              Motion: {motionEnabled ? 'On' : 'Off'}
+            </button>
+          </div>
         </div>
-        <div className="hidden md:flex space-x-6">
-          {['About', 'Skills', 'Education', 'Projects', 'Contact'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-gray-300 hover:text-blue-400 transition-colors relative group"
-            >
-              {item}
-              <span className="absolute left-0 bottom-0 w-full h-0.5 bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-            </a>
-          ))}
-        </div>
-      </nav>
+      </div>
     </header>
   );
 };

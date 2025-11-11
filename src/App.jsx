@@ -1,30 +1,136 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useMousePosition } from './hooks/useMousePosition';
+import { useScrollReveal } from './hooks/useScrollReveal';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
-import Education from './components/Education';
 import Projects from './components/Projects';
+import UIUX from './components/UIUX';
+import Education from './components/Education';
+import Certificates from './components/Certificates';
+import Activities from './components/Activities';
+import References from './components/References';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
+  const { x, y } = useMousePosition();
+  const [theme, setTheme] = useState('blue');
+  const [motionEnabled, setMotionEnabled] = useState(true);
+  const [showToTop, setShowToTop] = useState(false);
+
+  useScrollReveal();
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--mx', `${x}px`);
+    document.documentElement.style.setProperty('--my', `${y}px`);
+  }, [x, y]);
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme-color') || 'blue';
+    const savedMotion = localStorage.getItem('motion-enabled');
+    
+    setTheme(savedTheme);
+    document.body.setAttribute('data-theme', savedTheme);
+    
+    if (savedMotion !== null) {
+      const motion = savedMotion === 'true';
+      setMotionEnabled(motion);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('scroll-behavior', motionEnabled ? 'smooth' : 'auto');
+  }, [motionEnabled]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowToTop(window.scrollY > 600);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleThemeToggle = () => {
+    const newTheme = theme === 'green' ? 'blue' : 'green';
+    setTheme(newTheme);
+    document.body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme-color', newTheme);
+  };
+
+  const handleMotionToggle = () => {
+    const newMotionEnabled = !motionEnabled;
+    setMotionEnabled(newMotionEnabled);
+    localStorage.setItem('motion-enabled', newMotionEnabled.toString());
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: motionEnabled ? 'smooth' : 'auto' });
+  };
+
+  // Add structured data
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jayathi (Jayoda) Baddewatta",
+      "jobTitle": "Computer Science & Technology Undergraduate",
+      "email": "mailto:jayathibaddewatta@gmail.com",
+      "telephone": "+94703998213",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ahangama",
+        "addressCountry": "Sri Lanka"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Uva Wellassa University of Sri Lanka"
+      }
+    });
+    document.head.appendChild(script);
+    
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-200">
-      <Header />
-      <main className="container mx-auto px-4 py-8">
-        <Hero />
-        <section id="about" className="py-20"><About /></section>
-        <hr className="border-gray-700 my-8" />
-        <section id="skills" className="py-20"><Skills /></section>
-        <hr className="border-gray-700 my-8" />
-        <section id="education" className="py-20"><Education /></section>
-        <hr className="border-gray-700 my-8" />
-        <section id="projects" className="py-20"><Projects /></section>
-        <hr className="border-gray-700 my-8" />
-        <section id="contact" className="py-20"><Contact /></section>
+    <div className="App">
+      <div className="bg-light" aria-hidden="true"></div>
+      
+      <Header 
+        theme={theme}
+        onThemeToggle={handleThemeToggle}
+        motionEnabled={motionEnabled}
+        onMotionToggle={handleMotionToggle}
+      />
+      
+      <main>
+        <Hero motionEnabled={motionEnabled} />
+        <About />
+        <Skills />
+        <Projects />
+        <UIUX />
+        <Education />
+        <Certificates />
+        <Activities />
+        <References />
+        <Contact />
       </main>
+      
       <Footer />
+      
+      <button 
+        className={`btn to-top ${showToTop ? 'show' : ''}`} 
+        onClick={scrollToTop}
+        aria-label="Back to top"
+      >
+        ↑ Top
+      </button>
     </div>
   );
 }
