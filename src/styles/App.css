@@ -157,6 +157,30 @@ section {
 .hero-visual {
   position: relative; min-height: 320px; display: grid; place-items: center;
 }
+
+/* Portrait styles for hero */
+.portrait-container { display: flex; align-items: center; justify-content: center; }
+.portrait-wrapper {
+  width: 180px; /* change this value to resize portrait */
+  height: 180px;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  border: 6px solid rgba(255,255,255,0.06);
+  background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+.portrait-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.portrait-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  box-shadow: 0 0 40px rgba(96,165,250,0.12) inset;
+}
 .glass {
   background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
   border: 1px solid var(--border);

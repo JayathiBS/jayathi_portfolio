@@ -1,62 +1,105 @@
-// src/components/Hero.jsx
+import React, { useRef } from 'react';
+import { useFloatingBubbles } from '../hooks/useFloatingBubbles';
+import image from '../assets/Jayathi.png';
+// import portraitImg from '/images/jayathi-portrait.jpg';
 
-import React from 'react';
-// Assuming your professional image is saved in src/assets/jayathi-pro.jpg
-// For this code, we'll use a placeholder structure.
-// You'll need to manually import the image: import ProImage from '../assets/Gemini_Generated_Image_78ntev78ntev78nt.jpg';
+const Hero = ({ motionEnabled }) => {
+  const heroVisualRef = useRef(null);
+  useFloatingBubbles(heroVisualRef, motionEnabled);
 
-const socialLinks = [
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/jayathi-baddewaththa-922081315', icon: 'RiLinkedinFill' }, // Use actual icons in development (e.g., react-icons)
-  { name: 'GitHub', url: 'https://github.com/your-github-username', icon: 'RiGithubFill' },
-  { name: 'Behance', url: 'https://www.behance.net/jayathibaddewaththa', icon: 'RiBehanceFill' },
-];
+  const techBubbles = [
+    { tech: 'Java', r: 150, s: 0.6 },
+    { tech: 'JavaScript', r: 180, s: 0.5 },
+    { tech: 'React', r: 140, s: 0.7 },
+    { tech: 'Node.js', r: 200, s: 0.45 },
+    { tech: 'Spring Boot', r: 170, s: 0.55 },
+    { tech: 'MongoDB', r: 120, s: 0.8 },
+    { tech: 'MySQL', r: 190, s: 0.5 },
+    { tech: 'Tailwind', r: 130, s: 0.75 },
+    { tech: 'Express', r: 160, s: 0.65 },
+    { tech: 'PHP', r: 210, s: 0.45 },
+    { tech: 'C/C++', r: 150, s: 0.6 },
+    { tech: 'OpenAI API', r: 180, s: 0.5 },
+    { tech: 'JWT', r: 125, s: 0.78 },
+    { tech: 'GitHub', r: 155, s: 0.62 },
+    { tech: 'Postman', r: 175, s: 0.58 },
+    { tech: 'Figma', r: 115, s: 0.84 },
+  ];
 
-const Hero = () => {
   return (
-    <section className="pt-20 pb-32 flex flex-col items-center text-center relative z-10">
-      {/* decorative orbs inside hero (subtle) */}
-      <div className="absolute left-0 top-0 opacity-0" aria-hidden="true"></div>
-
-      {/* Photo (replace with your actual image path) */}
-      <img
-        // Replace with your actual image path in src/assets and import for production
-        src="/path/to/Gemini_Generated_Image_78ntev78ntev78nt.jpg"
-        alt="Jayathi Jayoda Professional Portrait"
-        className="w-44 h-44 rounded-full object-cover border-4 border-transparent accent-bg p-1 mb-8 float-up"
-      />
-
-      <p className="text-xl text-muted font-medium mb-3">Hi, I'm <span className="text-light-text">Jayathi Jayoda</span></p>
-
-      <h1 className="text-5xl sm:text-6xl font-extrabold max-w-4xl leading-tight text-light-text">
-        Building <span className="accent">User-Centric</span> and Quality-Assured Digital Experiences.
-      </h1>
-
-      <p className="mt-6 text-lg max-w-2xl text-muted">
-        A final-year Computer Science undergraduate blending frontend development with UI/UX design and a focus on quality assurance to deliver robust, delightful products.
-      </p>
-
-      <div className="mt-10 flex space-x-6">
-        <a
-          href="#projects"
-          className="btn-primary shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300"
-        >
-          View My Projects
-        </a>
-        <a
-          href="#contact"
-          className="btn-ghost"
-        >
-          Get In Touch
-        </a>
+    <section className="wrap hero">
+      <div>
+        <h1 className="title reveal">JAYATHI JAYODA</h1>
+        <p className="sub reveal">Jayathi Baddewatta • (BSc) in Computer Science and Technology (Undergraduate)</p>
+        <p className="tagline reveal">
+          A results-driven Computer Science undergraduate building delightful digital experiences through user-centric design and quality-assured frontend development.
+        </p>
+        <div className="cta reveal" style={{ transitionDelay: '.05s' }}>
+          <a className="btn primary" href="#" title="Add your resume PDF URL" target="_blank" rel="noopener noreferrer">
+            Download Résumé
+          </a>
+          <a className="btn" href="#projects">View Projects</a>
+          <a className="btn" href="mailto:jayathibaddewatta@gmail.com">Contact Me</a>
+        </div>
+        <div className="contact-row reveal" style={{ transitionDelay: '.1s' }}>
+          <div className="contact-pill">
+            <span className="i"></span>
+            <a href="tel:+94703998213">+94 70 399 8213</a>
+          </div>
+          <div className="contact-pill">
+            <span className="i"></span>
+            <a href="mailto:jayathibaddewatta@gmail.com">jayathibaddewatta@gmail.com</a>
+          </div>
+          <div className="contact-pill">
+            <span className="i"></span>
+            Keenaduwa, Ahangama, Sri Lanka
+          </div>
+        </div>
+        <div className="stat reveal" style={{ transitionDelay: '.15s' }}>
+          <span className="i" style={{ width: '10px', height: '10px', borderRadius: '50%' }}></span>
+          4+ full‑stack projects completed
+        </div>
       </div>
 
-      {/* Social Links */}
-      <div className="mt-16 flex space-x-6 text-lg text-muted">
-        {socialLinks.map(link => (
-            <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="hover:accent transition duration-300">
-                {link.name}
-            </a>
-        ))}
+      <div className="hero-visual" ref={heroVisualRef}>
+        {/* Portrait Container */}
+        <div className="portrait-container reveal" style={{ transitionDelay: '.05s' }}>
+          <div className="portrait-wrapper">
+            <img 
+  src={image} 
+  alt="Jayathi Jayoda - Computer Science Undergraduate"
+  className="portrait-image"
+/>
+            <div className="portrait-glow"></div>
+          </div>
+        </div>
+
+        {/* ID Card */}
+        <div className="glass id-card reveal" style={{ transitionDelay: '.1s', marginTop: '20px' }}>
+          <div className="name">
+            <h3>Student ID • CS & Tech</h3>
+            <div className="badge">Undergraduate</div>
+          </div>
+          <div className="id-grid">
+            <div><strong>Name</strong>Jayathi Baddewatta</div>
+            <div><strong>Alias</strong>Jayathi "Jayoda"</div>
+            <div><strong>University</strong>Uva Wellassa University</div>
+            <div><strong>Location</strong>Ahangama, Sri Lanka</div>
+          </div>
+        </div>
+
+        <div className="float-layer" aria-hidden="true">
+          {techBubbles.map((bubble, index) => (
+            <div
+              key={index}
+              className="tech-bubble"
+              data-r={bubble.r}
+              data-s={bubble.s}
+            >
+              {bubble.tech}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
