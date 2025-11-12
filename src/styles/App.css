@@ -50,12 +50,13 @@ body {
 }
 
 .wrap {
-  max-width: 1160px;
+  max-width: 1360px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .nav-row {
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -116,9 +117,14 @@ section {
 
 /* Hero */
 .hero {
-  padding-top: 48px;
-  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px;
+  /* make hero cover full viewport and keep content centered */
+  min-height: 100vh;
+  padding: 0; /* remove default section padding so background fills edge-to-edge */
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
   align-items: center;
+  position: relative;
 }
 .title {
   font-size: clamp(34px, 5vw, 56px);
@@ -155,14 +161,16 @@ section {
 }
 
 .hero-visual {
-  position: relative; min-height: 320px; display: grid; place-items: center;
+  position: relative;
+  min-height: clamp(280px, 40vh, 520px);
+  display: grid; place-items: center;
 }
 
 /* Portrait styles for hero */
 .portrait-container { display: flex; align-items: center; justify-content: center; }
 .portrait-wrapper {
-  width: 180px; /* change this value to resize portrait */
-  height: 180px;
+  width: clamp(110px, 18vw, 180px); /* responsive portrait size */
+  height: clamp(110px, 18vw, 180px);
   border-radius: 9999px;
   overflow: hidden;
   position: relative;

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useFloatingBubbles } from '../hooks/useFloatingBubbles';
 import image from '../assets/Jayathi.png';
+import heroImg from '../assets/hero.png';
 // import portraitImg from '/images/jayathi-portrait.jpg';
 
 const Hero = ({ motionEnabled }) => {
@@ -23,11 +24,19 @@ const Hero = ({ motionEnabled }) => {
     { tech: 'JWT', r: 125, s: 0.78 },
     { tech: 'GitHub', r: 155, s: 0.62 },
     { tech: 'Postman', r: 175, s: 0.58 },
-    { tech: 'Figma', r: 115, s: 0.84 },
+  // removed 'Figma' bubble to avoid small overlapping artifact
   ];
 
   return (
-    <section className="wrap hero">
+    <section
+      className="hero"
+      style={{
+        backgroundImage: `url(${heroImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="wrap">
       <div>
         <h1 className="title reveal">JAYATHI JAYODA</h1>
         <p className="sub reveal">Jayathi Baddewatta • (BSc) in Computer Science and Technology (Undergraduate)</p>
@@ -55,10 +64,7 @@ const Hero = ({ motionEnabled }) => {
             Keenaduwa, Ahangama, Sri Lanka
           </div>
         </div>
-        <div className="stat reveal" style={{ transitionDelay: '.15s' }}>
-          <span className="i" style={{ width: '10px', height: '10px', borderRadius: '50%' }}></span>
-          4+ full‑stack projects completed
-        </div>
+        
       </div>
 
       <div className="hero-visual" ref={heroVisualRef}>
@@ -74,19 +80,7 @@ const Hero = ({ motionEnabled }) => {
           </div>
         </div>
 
-        {/* ID Card */}
-        <div className="glass id-card reveal" style={{ transitionDelay: '.1s', marginTop: '20px' }}>
-          <div className="name">
-            <h3>Student ID • CS & Tech</h3>
-            <div className="badge">Undergraduate</div>
-          </div>
-          <div className="id-grid">
-            <div><strong>Name</strong>Jayathi Baddewatta</div>
-            <div><strong>Alias</strong>Jayathi "Jayoda"</div>
-            <div><strong>University</strong>Uva Wellassa University</div>
-            <div><strong>Location</strong>Ahangama, Sri Lanka</div>
-          </div>
-        </div>
+        {/* ID Card removed per request */}
 
         <div className="float-layer" aria-hidden="true">
           {techBubbles.map((bubble, index) => (
@@ -100,6 +94,7 @@ const Hero = ({ motionEnabled }) => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

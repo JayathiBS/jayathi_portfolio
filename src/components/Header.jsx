@@ -14,13 +14,14 @@ const Header = ({ theme, onThemeToggle, motionEnabled, onMotionToggle }) => {
 
   return (
     <header className="nav">
-      <div className="wrap">
+     
         <div className="nav-row">
+           <div className="wrap">
           <div className="brand">
             <div className="logo">JJ</div>
             <div>
               <div style={{ fontSize: '15px', opacity: '.9' }}>Jayathi Jayoda</div>
-              <div style={{ fontSize: '12px', color: 'var(--muted)' }}>Computer Science & Tech Undergraduate</div>
+              
             </div>
           </div>
           <nav aria-label="Primary">
