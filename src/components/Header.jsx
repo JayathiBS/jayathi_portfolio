@@ -35,14 +35,7 @@ const Header = ({ theme, onThemeToggle, motionEnabled, onMotionToggle }) => {
               ))}
             </ul>
           </nav>
-          <div className="actions">
-            <button className="btn ghost" onClick={onThemeToggle} aria-label="Toggle green/blue theme">
-              Theme: {theme === 'green' ? 'Green' : 'Blue'}
-            </button>
-            <button className="btn ghost" onClick={onMotionToggle} aria-label="Toggle animations">
-              Motion: {motionEnabled ? 'On' : 'Off'}
-            </button>
-          </div>
+          {/* actions removed per request */}
         </div>
       </div>
     </header>

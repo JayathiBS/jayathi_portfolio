@@ -38,7 +38,7 @@ const Hero = ({ motionEnabled }) => {
     >
       <div className="wrap">
       <div>
-        <h1 className="title reveal">JAYATHI JAYODA</h1>
+        <h1 className="title reveal">JAYATHI BADDEWATHTHA</h1>
         <p className="sub reveal">Jayathi Baddewatta • (BSc) in Computer Science and Technology (Undergraduate)</p>
         <p className="tagline reveal">
           A results-driven Computer Science undergraduate building delightful digital experiences through user-centric design and quality-assured frontend development.
@@ -50,19 +50,48 @@ const Hero = ({ motionEnabled }) => {
           <a className="btn" href="#projects">View Projects</a>
           <a className="btn" href="mailto:jayathibaddewatta@gmail.com">Contact Me</a>
         </div>
-        <div className="contact-row reveal" style={{ transitionDelay: '.1s' }}>
-          <div className="contact-pill">
-            <span className="i"></span>
-            <a href="tel:+94703998213">+94 70 399 8213</a>
-          </div>
-          <div className="contact-pill">
-            <span className="i"></span>
-            <a href="mailto:jayathibaddewatta@gmail.com">jayathibaddewatta@gmail.com</a>
-          </div>
-          <div className="contact-pill">
-            <span className="i"></span>
-            Keenaduwa, Ahangama, Sri Lanka
-          </div>
+        <div className="hero-socials reveal" style={{ transitionDelay: '.1s' }}>
+          <a
+            className="social-link"
+            href="https://www.linkedin.com/in/jayathi-baddewaththa-922081315"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn - Jayathi Baddewaththa"
+          >
+            <span className="i" aria-hidden="true"></span>
+            <span>LinkedIn</span>
+          </a>
+
+          <a
+            className="social-link"
+            href="https://www.behance.net/jayathibaddewaththa"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Behance - Jayathi Baddewaththa"
+          >
+            <span className="i" aria-hidden="true"></span>
+            <span>Behance</span>
+          </a>
+
+          <a
+            className="social-link"
+            href="https://github.com/JayathiBS"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub - JayathiBS"
+          >
+            <span className="i" aria-hidden="true"></span>
+            <span>GitHub</span>
+          </a>
+
+          <a
+            className="social-link"
+            href="mailto:jayathibaddewatta@gmail.com"
+            title="Email Jayathi"
+          >
+            <span className="i" aria-hidden="true"></span>
+            <span>Email</span>
+          </a>
         </div>
         
       </div>

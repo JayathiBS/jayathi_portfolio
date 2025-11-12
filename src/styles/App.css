@@ -55,12 +55,63 @@ body {
   padding: 0 20px;
 }
 
+/* make the .wrap inside .hero a two-column grid: left content + right visual */
+.hero > .wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 32px;
+  align-items: center;
+}
+
 .nav-row {
   
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 64px;
+}
+
+/* Navbar horizontal line and sticky header */
+header.nav {
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(10,16,32,0.6), rgba(10,16,32,0.4));
+  position: sticky;
+  top: 0;
+  z-index: 80;
+}
+
+/* place brand/logo at the left corner of the header */
+header.nav .brand {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+}
+
+/* ensure header content respects the left logo by adding left padding to wrap inside header */
+header.nav .wrap {
+  padding-left: 96px; /* adjust if logo size changes */
+}
+
+@media (max-width: 720px) {
+  /* on small screens keep brand in flow */
+  header.nav .brand { position: static; transform: none; }
+  header.nav .wrap { padding-left: 20px; }
+}
+
+/* place primary nav on the right corner for wide screens */
+header.nav nav {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+}
+
+@media (max-width: 720px) {
+  /* on small screens keep nav in normal flow below logo */
+  header.nav nav { position: static; transform: none; margin-top: 12px; }
 }
 
 .brand {
@@ -118,12 +169,12 @@ section {
 /* Hero */
 .hero {
   /* make hero cover full viewport and keep content centered */
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 0; /* remove default section padding so background fills edge-to-edge */
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 32px;
+  /* center .wrap both vertically and horizontally on wide screens */
+  display: flex;
   align-items: center;
+  justify-content: center;
   position: relative;
 }
 .title {
@@ -153,6 +204,33 @@ section {
   background: rgba(255,255,255,0.04); border-radius: 999px;
 }
 .contact-pill a { color: var(--text); text-decoration: none; }
+
+/* Social links in hero (LinkedIn / Behance / GitHub / Email) */
+.hero-socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.15s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+.social-link .i { width: 18px; height: 18px; border-radius: 6px; }
+.social-link:hover { background: var(--card-2); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+.social-link:active { transform: translateY(0); }
+@media (max-width: 960px) {
+  .hero-socials { justify-content: center; }
+}
 .stat {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 8px 12px; border-radius: 10px; background: rgba(0,0,0,0.18);
@@ -169,8 +247,9 @@ section {
 /* Portrait styles for hero */
 .portrait-container { display: flex; align-items: center; justify-content: center; }
 .portrait-wrapper {
-  width: clamp(110px, 18vw, 180px); /* responsive portrait size */
-  height: clamp(110px, 18vw, 180px);
+  /* enlarged responsive portrait size: min 140px, preferred 20vw, max 260px */
+  width: clamp(140px, 20vw, 260px);
+  height: clamp(140px, 20vw, 260px);
   border-radius: 9999px;
   overflow: hidden;
   position: relative;
@@ -251,7 +330,9 @@ h2.section-title {
 .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .grid.cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 960px) {
-  .hero { grid-template-columns: 1fr; }
+  .hero { grid-template-columns: 1fr; align-items: flex-start; padding-top: 48px; }
+  /* on small screens, keep portrait in flow and centered */
+  .portrait-container { position: static; transform: none; margin: 18px 0 0; }
   .grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
   .grid.cols-3 { grid-template-columns: repeat(1, 1fr); }
   .grid.cols-2 { grid-template-columns: repeat(1, 1fr); }
