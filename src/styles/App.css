@@ -546,12 +546,21 @@ details[open] { background: rgba(255,255,255,0.06); }
 
 /* Footer */
 footer {
-  padding: 40px 0 80px; color: var(--muted);
+  /* reduced vertical padding to make footer shorter */
+  padding: 18px 0 28px;
+  color: var(--muted);
   border-top: 1px solid var(--border);
   background: linear-gradient(180deg, transparent, rgba(0,0,0,0.25));
 }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+.footer-grid { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: center; }
 @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* Center footer content when there's only a single column (or to center items inside their grid cells) */
+.footer-grid > div { justify-self: center; text-align: center; }
+
+/* ensure the logo/brand inside the footer stays compact */
+.brand { gap: 10px; }
+.brand .logo { width: 44px; height: 44px; border-radius: 10px; font-size: 18px; }
 
 /* Back-to-top */
 .to-top {
