@@ -497,6 +497,22 @@ h2.section-title {
   .skills-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 }
 
+/* Project card image styling */
+.project-image {
+  width: 100%;
+  /* fixed responsive image height so all project previews match (like PoultryPro) */
+  height: clamp(220px, 32vh, 420px);
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+/* Increase spacing above Projects to separate it from Key Skills */
+section#projects {
+  /* increased spacing to separate Projects from Key Skills more clearly */
+  padding-top: clamp(120px, 14vh, 200px);
+}
+
 /* Details / toggles */
 details {
   background: rgba(255,255,255,0.04);
