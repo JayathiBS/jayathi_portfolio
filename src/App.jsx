@@ -8,9 +8,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import UIUX from './components/UIUX';
 import Education from './components/Education';
-import Certificates from './components/Certificates';
 import Activities from './components/Activities';
-import References from './components/References';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -115,11 +113,9 @@ function App() {
         <Skills />
         <Projects />
         <UIUX />
-        <Education />
-        <Certificates />
-        <Activities />
-        <References />
-        <Contact />
+  <Education />
+  <Activities />
+  <Contact />
       </main>
       
       <Footer />

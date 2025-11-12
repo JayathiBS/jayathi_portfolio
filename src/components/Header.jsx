@@ -26,7 +26,7 @@ const Header = ({ theme, onThemeToggle, motionEnabled, onMotionToggle }) => {
           </div>
           <nav aria-label="Primary">
             <ul>
-              {['about', 'skills', 'projects', 'uiux', 'education', 'certificates', 'contact'].map((item) => (
+              {['about', 'skills', 'projects', 'uiux', 'education', 'contact'].map((item) => (
                 <li key={item}>
                   <a href={`#${item}`} onClick={(e) => handleSmoothScroll(e, item)}>
                     {item.charAt(0).toUpperCase() + item.slice(1)}
