@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useFloatingBubbles } from '../hooks/useFloatingBubbles';
 import image from '../assets/Jayathi.png';
 import heroImg from '../assets/hero.png';
+import cv from '../assets/Jayathi.pdf';
 // import portraitImg from '/images/jayathi-portrait.jpg';
 
 const Hero = ({ motionEnabled }) => {
@@ -39,13 +40,13 @@ const Hero = ({ motionEnabled }) => {
       <div className="wrap">
       <div>
         <h1 className="title reveal">JAYATHI BADDEWATHTHA</h1>
-        <p className="sub reveal">Jayathi Baddewatta • (BSc) in Computer Science and Technology (Undergraduate)</p>
+        <p className="sub reveal">(BSc) in Computer Science and Technology (Undergraduate)</p>
         <p className="tagline reveal">
           A results-driven Computer Science undergraduate building delightful digital experiences through user-centric design and quality-assured frontend development.
         </p>
         <div className="cta reveal" style={{ transitionDelay: '.05s' }}>
-          <a className="btn primary" href="#" title="Add your resume PDF URL" target="_blank" rel="noopener noreferrer">
-            Download Résumé
+          <a className="btn primary" href={cv} download="Jayathi.pdf" title="Download Jayathi's CV">
+            Download CV
           </a>
           <a className="btn" href="#projects">View Projects</a>
           <a className="btn" href="mailto:jayathibaddewatta@gmail.com">Contact Me</a>
