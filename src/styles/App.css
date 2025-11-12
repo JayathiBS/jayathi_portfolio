@@ -171,13 +171,15 @@ section#about {
   padding-top: clamp(88px, 10vh, 140px);
 }
 
-/* Reduce vertical gap between About and Key Skills sections */
+/* Increase vertical gap between About and Key Skills sections */
 section#about {
-  padding-bottom: clamp(20px, 4vh, 36px);
+  /* larger bottom padding so Skills sits further down */
+  padding-bottom: clamp(64px, 8vh, 110px);
 }
 
 section#skills {
-  padding-top: clamp(20px, 4vh, 36px);
+  /* larger top padding to match About's bottom spacing */
+  padding-top: clamp(48px, 6vh, 90px);
 }
 
 /* Hero */
@@ -468,6 +470,31 @@ h2.section-title {
   padding: 6px 10px; border-radius: 999px; border: 1px solid var(--accent-soft);
   background: rgba(255,255,255,0.04); color: #d6f3ff;
   font-size: 12px; margin: 6px 6px 0 0;
+}
+
+/* Skills section - icon grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.skill-tile {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.12s ease;
+}
+.skill-tile:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(0,0,0,0.28); }
+.skill-icon { width: 40px; height: 28px; object-fit: cover; border-radius: 8px; display: inline-block; }
+.skill-name { font-weight: 700; font-size: 14px; }
+
+@media (max-width: 960px) {
+  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .skills-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 }
 
 /* Details / toggles */
