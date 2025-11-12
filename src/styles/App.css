@@ -166,6 +166,20 @@ section {
   scroll-margin-top: 80px;
 }
 
+/* Increase vertical gap between the hero and the About section */
+section#about {
+  padding-top: clamp(88px, 10vh, 140px);
+}
+
+/* Reduce vertical gap between About and Key Skills sections */
+section#about {
+  padding-bottom: clamp(20px, 4vh, 36px);
+}
+
+section#skills {
+  padding-top: clamp(20px, 4vh, 36px);
+}
+
 /* Hero */
 .hero {
   /* make hero cover full viewport and keep content centered */
@@ -271,8 +285,8 @@ section {
 
 /* Skills bar pinned to bottom of the hero */
 .hero {
-  /* reserve space at the bottom so absolute skills won't overlap content */
-  padding-bottom: clamp(80px, 10vh, 120px);
+  /* reserve more space at the bottom so the skills marquee doesn't crowd hero content */
+  padding-bottom: clamp(140px, 14vh, 200px);
 }
 .hero-skills {
   position: absolute;

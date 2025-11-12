@@ -23,6 +23,8 @@ import icJWT from '../assets/icons/jwt.svg';
 import icSpring from '../assets/icons/spring.svg';
 import icDefault from '../assets/icons/default.svg';
 import icReact from '../assets/react.svg';
+import icFigma from '../assets/icons/figma.svg';
+import icCanva from '../assets/icons/canva.svg';
 // import portraitImg from '/images/jayathi-portrait.jpg';
 
 const Hero = ({ motionEnabled }) => {
@@ -50,7 +52,7 @@ const Hero = ({ motionEnabled }) => {
 
   // primary skills to show at the bottom of the hero
   const skills = [
-    'JavaScript', 'React', 'Node.js', 'Java', 'HTML', 'CSS', 'Tailwind', 'MongoDB', 'MySQL', 'Git'
+    'JavaScript', 'React', 'Node.js', 'Java', 'HTML', 'CSS', 'Tailwind', 'MongoDB', 'MySQL', 'Git', 'Figma', 'Canva'
   ];
 
   return (
@@ -64,7 +66,7 @@ const Hero = ({ motionEnabled }) => {
     >
       <div className="wrap">
       <div>
-        <h1 className="title reveal">JAYATHI BADDEWATHTHA</h1>
+        <h1 className="title reveal">JAYATHI  BADDEWATHTHA</h1>
         <p className="sub reveal">(BSc) in Computer Science and Technology (Undergraduate)</p>
         <p className="tagline reveal">
           A results-driven Computer Science undergraduate building delightful digital experiences through user-centric design and quality-assured frontend development.
@@ -174,6 +176,8 @@ const Hero = ({ motionEnabled }) => {
                 'JWT': icJWT,
                 'Spring Boot': icSpring
               };
+              iconsMap['Figma'] = icFigma;
+              iconsMap['Canva'] = icCanva;
 
               return (
                 <>
