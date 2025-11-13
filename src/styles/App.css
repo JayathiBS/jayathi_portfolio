@@ -547,9 +547,8 @@ details[open] { background: rgba(255,255,255,0.06); }
 }
 .t-item { position: relative; margin-bottom: 20px; }
 .t-item::before {
-  content: ""; position: absolute; left: -2px; top: 4px; width: 10px; height: 10px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  /* hide the timeline dot (was a decorative blue circle) */
+  display: none;
 }
 .t-item h3 { margin: 0 0 6px; }
 .t-item .when { color: var(--muted); font-size: 14px; }
