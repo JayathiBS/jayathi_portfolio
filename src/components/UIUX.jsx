@@ -4,11 +4,11 @@ import photography from '../assets/Photo graphy .png';
 
 const UIUX = () => {
   const projects = [
-    { title: 'Studio Website Home Page UI', description: 'Clean, minimal homepage with visual emphasis on portfolio work.', image: photography },
-    { title: 'Villa Home Page UI', description: 'Modern landing page concept with premium villa booking flow.', image: greenyvila },
-    { title: 'Construction Site Web App UI', description: 'High-fidelity Figma prototype for a construction site management UI.' },
-    { title: 'Mobile App UI', description: 'Interactive mobile UI flows and components.' },
-    { title: 'Restaurant Mobile App UI', description: 'Food ordering UI with intuitive navigation and ordering flow.' }
+  { title: 'Studio Website Home Page UI', description: 'PhotoGallery is a sleek and responsive photography portfolio website showcasing weddings, portraits, events, and pre-shoots. With warm tones and cinematic design, it transforms beautiful moments into timeless visual art.', image: photography, behance: 'https://www.behance.net/gallery/238205673/PhotoGallery-Photography-Website-UI-Design' },
+    { title: 'Villa Home Page UI', description: 'Greeny Villa, a high-end eco-friendly retreat in Sri Lanka. Designed to blend natural serenity with luxurious comfort, our responsive website offers immersive visuals, seamless booking, and inspiring stories that invite travelers to experience an unforgettable escape in harmony with nature.', image: greenyvila, behance: 'https://www.behance.net/gallery/238226417/Greeny-Vila-A-Luxury-Nature-Retreat-Website-UI' },
+    { title: 'Construction Site Web App UI', description: 'High-fidelity Figma prototype for a construction site management UI.', behance: 'https://www.behance.net/jayathibaddewaththa' },
+    { title: 'Mobile App UI', description: 'Interactive mobile UI flows and components.', behance: 'https://www.behance.net/jayathibaddewaththa' },
+    { title: 'Restaurant Mobile App UI', description: 'Food ordering UI with intuitive navigation and ordering flow.', behance: 'https://www.behance.net/jayathibaddewaththa' }
   ];
 
   return (
@@ -28,7 +28,7 @@ const UIUX = () => {
             <p>{project.description}</p>
             <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 8 }}>
               <a
-                href="https://www.behance.net/"
+                href={project.behance || 'https://www.behance.net/'}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`Open ${project.title} on Behance`}
@@ -54,7 +54,7 @@ const UIUX = () => {
           </div>
         ))}
       </div>
-      <p className="section-desc" style={{ marginTop: '14px' }}>Tip: Replace "View Figma" links with your actual Figma URLs.</p>
+    
     </section>
   );
 };

@@ -10,21 +10,24 @@ const Projects = () => {
       image: homePointImg,
       description: 'Web-based system for managing construction operations: bookings, projects, payroll, inventory, and communication.',
       contribution: 'Designed and implemented the real-time communication module, including project-based chat rooms, secure messaging, and in-chat file sharing for a responsive, collaborative UX.',
-      chips: ['MERN', 'Socket.IO', 'Next.js API', 'Tailwind']
+      chips: ['MERN', 'Socket.IO', 'Next.js API', 'Tailwind'],
+      linkedin: 'https://www.linkedin.com/posts/jayathi-baddewaththa-922081315_constructiontech-projectmanagement-fullstackdevelopment-activity-7392390444338307073-1Ot_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_sI-oBEUpR7LC_pvlT3FY-t9mdn6PDJAs'
     },
     {
       title: 'PoultryPro – Poultry Farm Management',
       image: poultryProImg,
       description: 'Manages inventory, feed, medicines, suppliers, and sales with an online marketplace and reporting modules.',
       contribution: 'Built the Feed Management Module to add, update, delete, and track feed records; manage inventory, usage, and cost analysis.',
-      chips: ['PHP', 'Bootstrap', 'MySQL']
+      chips: ['PHP', 'Bootstrap', 'MySQL'],
+      linkedin: 'https://www.linkedin.com/posts/jayathi-baddewaththa-922081315_projectcompletion-teamwork-poultrymanagement-activity-7331897354389790720-FEeH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_sI-oBEUpR7LC_pvlT3FY-t9mdn6PDJAs'
     },
     {
       title: 'BestBid: Online Auction Platform',
       image: bestBidImg,
       description: 'Real-time bidding platform enabling secure transactions and a seamless cross-device experience.',
       contribution: 'Focused on frontend development: responsive UI with React, Tailwind, and Framer Motion; collaborated to integrate Django REST and PostgreSQL.',
-      chips: ['React', 'Tailwind', 'Framer Motion', 'Django REST', 'PostgreSQL']
+      chips: ['React', 'Tailwind', 'Framer Motion', 'Django REST', 'PostgreSQL'],
+      linkedin: 'https://www.linkedin.com/posts/jayathi-baddewaththa-922081315_webdevelopment-react-django-activity-7352589426381778945-6qtI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE_sI-oBEUpR7LC_pvlT3FY-t9mdn6PDJAs'
     }
   ];
 
@@ -65,7 +68,7 @@ const Projects = () => {
               </a>
               <a
                 className="btn ghost"
-                href="https://www.linkedin.com/in/jayathi-baddewaththa-922081315"
+                href={project.linkedin || 'https://www.linkedin.com/in/jayathi-baddewaththa-922081315'}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`View ${project.title} on LinkedIn`}
