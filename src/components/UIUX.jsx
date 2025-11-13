@@ -26,7 +26,31 @@ const UIUX = () => {
             )}
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <a className="btn" href="#" target="_blank" rel="noopener noreferrer">View Figma</a>
+            <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 8 }}>
+              <a
+                href="https://www.behance.net/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${project.title} on Behance`}
+                title="Behance"
+                style={{
+                  display: 'inline-grid',
+                  placeItems: 'center',
+                  color: '#ffffff',
+                  width: 64,
+                  height: 64,
+                  border: 'none',
+                  background: 'transparent',
+                  padding: 0,
+                  boxShadow: 'none',
+                  outline: 'none'
+                }}
+              >
+                <div style={{ width: 52, height: 52, display: 'grid', placeItems: 'center', borderRadius: 10, background: 'rgba(255,255,255,0.08)' }}>
+                  <span style={{ color: '#fff', fontWeight: 800, fontSize: 18, lineHeight: 1 }}>Be</span>
+                </div>
+              </a>
+            </div>
           </div>
         ))}
       </div>
