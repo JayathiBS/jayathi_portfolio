@@ -646,3 +646,32 @@ a.link:hover { border-bottom-style: solid; }
 
 /* Accessibility helpers */
 .sr-only { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Additional responsive tweaks */
+@media (max-width: 720px) {
+  .wrap { padding: 0 12px; }
+  section { padding: 48px 0; scroll-margin-top: 68px; }
+  .hero { min-height: 70vh; padding-bottom: clamp(90px, 12vh, 140px); }
+  .project-image { height: auto; max-height: 240px; }
+  .nav-row { height: 56px; }
+}
+
+@media (max-width: 520px) {
+  .wrap { padding: 0 10px; }
+  section { padding: 36px 0; scroll-margin-top: 64px; }
+  .hero { min-height: 60vh; padding-bottom: 80px; }
+  .portrait-wrapper { width: clamp(100px, 36vw, 160px); height: clamp(100px, 36vw, 160px); }
+  .skill-chip, .marquee-item { font-size: 12px; padding: 6px 8px; }
+  nav ul { gap: 12px; }
+  nav a { padding: 6px 8px; }
+}
+
+/* Ensure grids collapse predictably on narrow screens */
+@media (max-width: 960px) {
+  .grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid.cols-3 { grid-template-columns: repeat(1, 1fr); }
+  .grid.cols-2 { grid-template-columns: repeat(1, 1fr); }
+}
+
+/* Prevent long text or overflow inside cards on small screens */
+.card p, .card h3 { word-break: break-word; }
