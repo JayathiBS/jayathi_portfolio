@@ -83,6 +83,53 @@ header.nav {
   position: sticky;
   top: 0;
   z-index: 80;
+  transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+/* header appearance when scrolled past hero */
+header.nav.scrolled {
+  background: linear-gradient(180deg, rgba(10,16,32,0.98), rgba(10,16,32,0.96));
+  border-bottom-color: rgba(255,255,255,0.04);
+  box-shadow: 0 6px 30px rgba(3,6,13,0.45);
+  backdrop-filter: blur(6px);
+}
+
+/* Mobile menu button */
+.menu-btn { display: none; appearance: none; border: 0; background: transparent; padding: 6px; cursor: pointer; }
+.menu-btn .hamburger { display: inline-block; width: 22px; height: 2px; background: var(--text); position: relative; border-radius: 2px; }
+.menu-btn .hamburger::before, .menu-btn .hamburger::after {
+  content: ""; position: absolute; left: 0; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 180ms ease, opacity 180ms ease;
+}
+.menu-btn .hamburger::before { top: -7px; }
+.menu-btn .hamburger::after { top: 7px; }
+.menu-btn.open .hamburger { background: transparent; }
+.menu-btn.open .hamburger::before { transform: translateY(7px) rotate(45deg); }
+.menu-btn.open .hamburger::after { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 720px) {
+  /* show hamburger */
+  .menu-btn { display: inline-flex; align-items: center; justify-content: center; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); z-index: 120; }
+
+  /* hide the desktop nav and show mobile popup when open */
+  header.nav nav { display: none; }
+  header.nav.menu-open nav {
+    display: block; position: absolute; right: 12px; top: calc(100% + 8px);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid var(--border); padding: 12px; border-radius: 12px; box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+    min-width: 180px; z-index: 115;
+  }
+  header.nav.menu-open nav ul { display: flex; flex-direction: column; gap: 8px; }
+  header.nav.menu-open nav a { display: block; padding: 8px 10px; }
+
+  /* ensure brand and wrap spacing fit small screens */
+  header.nav .wrap { padding-left: 20px; padding-right: 64px; }
+}
+
+/* Make hero wrap stack more cleanly on smaller viewports */
+@media (max-width: 960px) {
+  .hero > .wrap { display: grid; grid-template-columns: 1fr; gap: 18px; align-items: center; padding: 20px; }
+  .hero { padding-top: 48px; }
+  .portrait-wrapper { margin: 0 auto; }
 }
 
 /* place brand/logo at the left corner of the header */
