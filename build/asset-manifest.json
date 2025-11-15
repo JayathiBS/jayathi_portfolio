@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c2c63a55.css",
+    "main.js": "/static/js/main.bb034ae2.js",
+    "static/media/Jayathi.png": "/static/media/Jayathi.2c996d1a002acb84496d.png",
+    "static/media/greenyvila.png": "/static/media/greenyvila.a6abad74e17934c90ca6.png",
+    "static/media/Photo graphy .png": "/static/media/Photo graphy .04bb3d710233cfe776ea.png",
+    "static/media/Jayathi.pdf": "/static/media/Jayathi.70c3c7aa328d60b387ad.pdf",
+    "static/media/hero.png": "/static/media/hero.0ba2241cd3f001d2597d.png",
+    "static/media/poltrypro.jpeg": "/static/media/poltrypro.0e19eaae9e71e1e67a84.jpeg",
+    "static/media/homepoint.jpeg": "/static/media/homepoint.c9b7ca14d5dd1fc2a012.jpeg",
+    "static/media/bestbid.jpeg": "/static/media/bestbid.d713abc56de863466b11.jpeg",
+    "static/media/react.svg": "/static/media/react.6d4dd5dfc6163bdfcfe520bd6bef1a6a.svg",
+    "index.html": "/index.html",
+    "static/media/js.svg": "/static/media/js.412aab5008a721075ef62a836671230f.svg",
+    "static/media/mongodb.svg": "/static/media/mongodb.ca61b77e35016725497b095fd238333a.svg",
+    "static/media/canva.svg": "/static/media/canva.7214fad70589445ee053706e18333204.svg",
+    "static/media/default.svg": "/static/media/default.de8f9a49c480aa2a967bbbf3d54887ba.svg",
+    "static/media/figma.svg": "/static/media/figma.fb6b48b00d0ac2f90c10fa8ed60f3407.svg",
+    "static/media/jwt.svg": "/static/media/jwt.20f4ffe925b7f52d51a4c656a9c731d1.svg",
+    "static/media/nodejs.svg": "/static/media/nodejs.2a9ebff0ade648beb848a16b6eb74df2.svg",
+    "static/media/openai.svg": "/static/media/openai.488735eb34d8b62180c599fc644a90b2.svg",
+    "static/media/spring.svg": "/static/media/spring.fdad1566e91dfae7878b7e0371b7d524.svg",
+    "static/media/tailwind.svg": "/static/media/tailwind.7a41bd782a9e249aeb1111fa393d2543.svg",
+    "static/media/java.svg": "/static/media/java.a09e6c269083c9c0621550dbff5a20af.svg",
+    "static/media/postman.svg": "/static/media/postman.e7bf86fdef3d01c8766ab804f118e813.svg",
+    "static/media/cpp.svg": "/static/media/cpp.50c443664312cfe0d382a11ab1814713.svg",
+    "static/media/php.svg": "/static/media/php.76b3d06c8411644f8c682989327c37ea.svg",
+    "static/media/css.svg": "/static/media/css.81148f1ef468d89bb478be1a63eabcc7.svg",
+    "static/media/express.svg": "/static/media/express.750facba6a1cf144c2dadfeea5d84d5b.svg",
+    "static/media/github.svg": "/static/media/github.bb7b07ee28d8e66e3b5acbf907b29c4f.svg",
+    "static/media/html.svg": "/static/media/html.836a82badf12881f3cb6ad83b2d8c8b7.svg",
+    "static/media/mysql.svg": "/static/media/mysql.a06bd861490b9cc3e82c106c85d483b5.svg",
+    "static/media/git.svg": "/static/media/git.09391f562c187be6f7ee7c16af9ee17b.svg",
+    "main.c2c63a55.css.map": "/static/css/main.c2c63a55.css.map",
+    "main.bb034ae2.js.map": "/static/js/main.bb034ae2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2c63a55.css",
+    "static/js/main.bb034ae2.js"
+  ]
+}
