@@ -657,13 +657,43 @@ a.link:hover { border-bottom-style: solid; }
 }
 
 @media (max-width: 520px) {
-  .wrap { padding: 0 10px; }
+  .wrap { padding: 0 6px; }
   section { padding: 36px 0; scroll-margin-top: 64px; }
   .hero { min-height: 60vh; padding-bottom: 80px; }
   .portrait-wrapper { width: clamp(100px, 36vw, 160px); height: clamp(100px, 36vw, 160px); }
   .skill-chip, .marquee-item { font-size: 12px; padding: 6px 8px; }
   nav ul { gap: 12px; }
   nav a { padding: 6px 8px; }
+}
+
+/* Very small screens polish (phones) */
+@media (max-width: 420px) {
+  header.nav .brand { left: 8px; }
+  header.nav .brand .logo { width: 32px; height: 32px; }
+  header.nav .wrap { padding-left: 8px; padding-right: 48px; }
+  header.nav .brand div > div { font-size: 13px; max-width: 120px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .hero > .wrap { display: grid; grid-template-columns: 1fr; gap: 12px; align-items: start; padding: 12px; }
+  .hero { padding-top: 28px; padding-bottom: 80px; min-height: 64vh; }
+  .title { font-size: clamp(24px, 6.4vw, 36px); line-height: 1.05; }
+  .sub, .tagline { font-size: 14px; }
+
+  /* CTAs: left aligned, smaller */
+  .cta { justify-content: flex-start; gap: 8px; }
+  .btn { padding: 8px 10px; font-size: 14px; }
+
+  /* Social links stacked left to avoid overlap */
+  .hero-socials { justify-content: flex-start; gap: 8px; margin-top: 6px; }
+  .social-link { padding: 6px 8px; border-radius: 8px; }
+
+  /* hide marquee on very small devices to avoid crowding */
+  .skill-marquee { display: none; }
+
+  /* portrait sits below content and overlaps slightly for the visual shown */
+  .portrait-wrapper { margin: 6px auto 0; width: clamp(100px, 34vw, 140px); height: clamp(100px, 34vw, 140px); border-width: 5px; }
+
+  /* ensure project images don't overflow */
+  .project-image { height: auto; max-height: 220px; }
 }
 
 /* Ensure grids collapse predictably on narrow screens */
